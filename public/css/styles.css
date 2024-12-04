@@ -206,14 +206,13 @@ p.description-text {
     justify-content: flex-end;
 }
 
-/* Prispôsobenie pre `container` padding v Bootstrap */
 .navbar .container {
     padding-right: 0;
 }
 
 /* Prispôsobenie marginu pre posledný prvok */
 .navbar-nav.right-nav .nav-item {
-    margin-right: 0; /* Zruší poslednú medzeru na úplný pravý okraj */
+    margin-right: 0;
 }
 
 .nav-link {
