@@ -196,7 +196,7 @@ p.description-text {
 
 /* WORK SECTION */
 #see-my-work {
-    background-image: url('img/svadobna_background.jpg'); /* Default background */
+    background-image: url('../img/svadobna_background.jpg'); /* Default background */
     background-size: cover;
     background-position: center;
     width: 100vw;

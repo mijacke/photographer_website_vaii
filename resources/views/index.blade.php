@@ -25,7 +25,7 @@
                 <a class="nav-link" href="{{ url('/portfolio') }}">Portfolio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link home-link" href="{{ url('/index') }}">Domov</a>
+                <a class="nav-link home-link" href="{{ url('/') }}">Domov</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/about-me') }}">O mne</a>
