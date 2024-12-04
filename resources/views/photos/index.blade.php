@@ -25,10 +25,10 @@
                                     <i class="fas fa-eye"></i> Zobraziť
                                 </a>
 
-                                <form action="{{ route('photos.destroy', $photo->id) }}" method="POST" onsubmit="return confirm('Naozaj chcete túto fotku vymazať?')">
+                                <form action="{{ route('photos.destroy', $photo->id) }}" method="POST" class="delete-form">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">Zmazať</button>
+                                    <button type="submit" class="btn btn-danger btn-sm delete-button">Zmazať</button>
                                 </form>
                             </div>
                         </div>
