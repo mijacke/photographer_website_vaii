@@ -9,9 +9,10 @@ class PhotoController extends Controller
 {
     public function index()
     {
-        $photos = Photo::all();
+        $photos = Photo::latest()->paginate(9);
         return view('photos.index', compact('photos'));
     }
+
 
     public function create()
     {
@@ -20,20 +21,27 @@ class PhotoController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+        try {
+            $request->validate([
+                'title' => 'required|string|max:255',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:32768',
+            ]);
 
-        $imagePath = $request->file('image')->store('photos', 'public');
+            $imagePath = $request->file('image')->store('photos', 'public');
 
-        Photo::create([
-            'title' => $request->title,
-            'image_path' => $imagePath,
-        ]);
+            Photo::create([
+                'title' => $request->title,
+                'image_path' => $imagePath,
+            ]);
 
-        return redirect()->route('photos.index')->with('success', 'Photo added successfully!');
+            return redirect()->route('photos.index')->with('success', 'Photo added successfully!');
+        } catch (\Exception $e) {
+            \Log::error('Error storing photo: ' . $e->getMessage());
+            return redirect()->route('photos.index')->with('error', 'Error adding photo.');
+        }
     }
+
+
 
     public function show(Photo $photo)
     {

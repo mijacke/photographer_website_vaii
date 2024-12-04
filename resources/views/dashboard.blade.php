@@ -1,21 +1,40 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("Welcome to the Admin Dashboard!") }}
+@section('content')
+    <div class="container mt-5">
+        <!-- Sekcia s uvítaním -->
+        <h1>Vitaj na Dashboarde!</h1>
+        <p class="lead">Spravuj svoje fotky a sleduj štatistiky aplikácie.</p>
+
+        <!-- Klikací button na Photos -->
+        <a href="{{ route('photos.index') }}" class="btn btn-primary">Prejsť na Galériu fotiek</a>
+
+        <!-- Štatistiky alebo iné informácie -->
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">Celkový počet fotiek</div>
+                    <div class="card-body">
+                        <h3>{{ \App\Models\Photo::count() }}</h3>
+                    </div>
                 </div>
-                <!-- CRUD sem asi? -->
-                <div class="p-6">
-                    <a href="{{ route('home') }}" class="text-blue-500">Domovská stránka</a>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-success text-white">Nahrané fotky dnes</div>
+                    <div class="card-body">
+                        <h3>{{ \App\Models\Photo::whereDate('created_at', today())->count() }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-info text-white">Posledná nahratá fotka</div>
+                    <div class="card-body">
+                        <h3>{{ optional(\App\Models\Photo::latest()->first())->title ?? 'Žiadna fotka' }}</h3>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection
