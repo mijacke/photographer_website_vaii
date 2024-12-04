@@ -11,9 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Cardo:ital,wght@0,400;1,400&display=swap&family=Frank+Ruhl+Libre:wght@300..900&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../laravel_vaii/public/css/styles.css">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <!-- Custom JS -->
-    <script src="../../laravel_vaii/public/js/backgroundChange.js"></script>
+    <script src="{{ asset('js/backgroundChange.js') }}"></script>--}}
+
 </head>
 <body>
 <!-- Navigation Bar -->
@@ -21,13 +22,13 @@
     <div class="container">
         <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-                <a class="nav-link" href="portfolio.html">Portfolio</a>
+                <a class="nav-link" href="{{ url('/portfolio') }}">Portfolio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link home-link" href="index.html">Domov</a>
+                <a class="nav-link home-link" href="{{ url('/index') }}">Domov</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="aboutMe.html">O mne</a>
+                <a class="nav-link" href="{{ url('/about-me') }}">O mne</a>
             </li>
         </ul>
     </div>
@@ -69,19 +70,19 @@
 <section id="see-my-work" class="container-fluid text-center">
     <div class="row mt-4">
         <div class="col-md-4">
-            <div class="work-item" id="wedding" onmouseover="changeBackground('img/svadobna.jpg')">
+            <div class="work-item" id="wedding" onmouseover="changeBackground({{ asset('img/svadobna.jpg') }})">
                 <h3>Svadobné</h3>
                 <p>Lorem ipsum dolor</p>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="work-item" id="family" onmouseover="changeBackground('img/rodinna.jpg')">
+            <div class="work-item" id="family" onmouseover="changeBackground({{ asset('img/rodinna.jpg') }}">
                 <h3>Rodinné</h3>
                 <p>Lorem ipsum dolor</p>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="work-item" id="seasonal" onmouseover="changeBackground('img/sezonna.jpg')">
+            <div class="work-item" id="seasonal" onmouseover="changeBackground({{ asset('img/sezonna.jpg') }}">
                 <h3>Sezónne</h3>
                 <p>Lorem ipsum dolor</p>
             </div>
@@ -109,7 +110,7 @@
         <a href="https://www.instagram.com/paulifotografka/" target="_blank">Instagram</a>
     </div>
     <div class="back-to-top">
-        <a href="index.html">Back to top ↑</a>
+        <a href="{{ url('/index') }}">Back to top ↑</a>
     </div>
 </footer>
 

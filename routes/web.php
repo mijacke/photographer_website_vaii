@@ -14,20 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index'); // Zobrazuje `resources/views/index.blade.php`
 });
 
-// Route pre úvodnú stránku (index)
-Route::get('/', function () {
-    return view('index');
-});
-
-// Route pre About Me stránku
 Route::get('/about-me', function () {
-    return view('aboutMe');
+    return view('aboutMe'); // Zobrazuje `resources/views/aboutMe.blade.php`
 });
 
-// Route pre Portfolio stránku
 Route::get('/portfolio', function () {
-    return view('portfolio');
+    return view('portfolio'); // Zobrazuje `resources/views/portfolio.blade.php`
 });
+

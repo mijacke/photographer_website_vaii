@@ -20,13 +20,13 @@
   <div class="container">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item">
-        <a class="nav-link" href="portfolio.html">Portfolio</a>
+        <a class="nav-link" href="{{ url('/portfolio') }}">Portfolio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link home-link" href="index.html">Domov</a>
+        <a class="nav-link home-link" href="{{ url('/index') }}">Domov</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="aboutMe.html">O mne</a>
+        <a class="nav-link" href="{{ url('/about-me') }}">O mne</a>
       </li>
     </ul>
   </div>
@@ -43,7 +43,7 @@
   <div class="row align-items-center">
     <!-- Image Section -->
     <div class="col-md-5">
-      <img src="img/aboutMePauli.jpg" class="img-fluid" alt="Fotografka">
+      <img src="{{ asset('img/aboutMePauli.jpg') }}" class="img-fluid" alt="Fotografka">
     </div>
     <!-- Text Section -->
     <div class="col-md-7 text-left">
