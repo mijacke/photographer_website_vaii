@@ -1,0 +1,306 @@
+.cormorant {
+    font-family: 'Cormorant', serif;
+}
+
+/* Portfolio section */
+#portfolio {
+    background-image: url('../img/portfolioBackground.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 75vh; /* Zmenšená výška na 75% výšky obrazovky */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+    font-family: 'Cormorant', serif;
+}
+
+/* Nadpisy na pozadí */
+#portfolio h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#portfolio .subheading {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Flexbox container pre zarovnanie obrázkov */
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.col-md-6.d-flex.flex-column .portfolio-item {
+    flex: 1; /* Obidva obrázky naľavo budú zdieľať rovnakú výšku */
+}
+
+.tall-img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.portfolio-item h3 {
+    font-family: 'Cormorant', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+.portfolio-item p {
+    font-family: 'Cardo', serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #777;
+}
+
+/* Footer styling */
+#footer {
+    padding: 20px 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Full-screen background image */
+.background-section {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+    font-family: 'Cormorant', serif;
+}
+
+#about-me {
+    background-image: url('../img/aboutMeBackground.jpg');
+    background-size: cover;
+    background-position: bottom;
+    height: 75vh;
+}
+
+.about-me-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.img-fluid {
+    max-height: 80vh;
+    width: 100%;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.full-screen {
+    background-image: url('../img/svadobna_background.jpg');
+}
+
+.full-screen h1 {
+    font-size: 4rem;
+    font-weight: 700; /* Bold */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.full-screen .subheading {
+    font-size: 1rem;
+    font-weight: 700; /* Bold */
+    text-transform: uppercase; /* All caps */
+    margin-top: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#description {
+    font-family: 'Cormorant', serif;
+    margin-top: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.description-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.description-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 0 auto;
+}
+
+/* Different font for paragraph text */
+p.description-text {
+    font-family: 'Cardo', serif;
+    font-size: 1rem;
+    text-align: left;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+/* Custom navbar */
+.navbar-custom {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    text-transform: uppercase;
+    font-family: 'Cormorant', serif;
+}
+
+.nav-link {
+    font-size: 1.2rem;
+    color: black;
+    font-weight: 300;
+}
+
+/* On hover, change color */
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Special style for Home in the center */
+.home-link {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-item {
+    margin: 0 20px;
+}
+
+/* HORIZONTAL Line Styling */
+.divider {
+    border-top: 1px solid #999;
+    width: 25%;
+    margin: 40px auto;
+}
+
+/* WORK SECTION */
+#see-my-work {
+    background-image: url('img/svadobna_background.jpg'); /* Default background */
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: calc(100vw * 9 / 16); /* Adjust height based on the 16:9 ratio */
+    margin-left: calc(-50vw + 50%);
+    color: white;
+    transition: background-image 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent overflow if images extend */
+}
+
+/* Work items (Wedding, Family, Seasonal) */
+.work-item {
+    color: white;
+    transition: transform 0.3s ease-in-out, background-color 0.5s ease-in-out;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+    font-size: 1.5rem;
+    max-width: 400px;
+}
+
+/* Centering images properly */
+.work-item img {
+    width: 100%;
+    height: auto;
+    max-height: calc(100vw * 9 / 16); /* Ensure max height in 16:9 ratio */
+    object-fit: cover; /* Maintain aspect ratio, crop if needed */
+    object-position: center;
+}
+
+/* Umiestnenie textov v strede */
+.row {
+    width: 100%;
+    justify-content: space-around; /* Rovnomerné rozloženie položiek */
+    align-items: center;
+}
+
+.section-title {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* QUOTE SECTION */
+.quote-section {
+    padding: 200px 20px;
+    background-color: transparent;
+    color: black;
+    text-align: center;
+}
+
+/* Quote Header - Half the size */
+.quote-text h3 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-shadow: none;
+}
+
+.quote-text p {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* FOOTER Styling */
+#footer {
+    padding: 20px 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+#footer p {
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    margin-top: 10px;
+}
+
+.back-to-top a {
+    color: rosybrown;
+    text-decoration: none;
+}
+
+.back-to-top a:hover {
+    text-decoration: underline;
+}

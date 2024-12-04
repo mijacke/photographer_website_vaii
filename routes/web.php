@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route pre úvodnú stránku (index)
+Route::get('/', function () {
+    return view('index');
+});
+
+// Route pre About Me stránku
+Route::get('/about-me', function () {
+    return view('aboutMe');
+});
+
+// Route pre Portfolio stránku
+Route::get('/portfolio', function () {
+    return view('portfolio');
+});
