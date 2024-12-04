@@ -13,7 +13,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <!-- Custom JS -->
-    <script src="{{ asset('js/backgroundChange.js') }}"></script>--}}
+    <script src="{{ asset('js/backgroundChange.js') }}"></script>
 
 </head>
 <body>
@@ -70,19 +70,19 @@
 <section id="see-my-work" class="container-fluid text-center">
     <div class="row mt-4">
         <div class="col-md-4">
-            <div class="work-item" id="wedding" onmouseover="changeBackground({{ asset('img/svadobna.jpg') }})">
+            <div class="work-item" id="wedding" onmouseover="changeBackground('{{ asset('img/svadobna.jpg') }}')">
                 <h3>Svadobné</h3>
                 <p>Lorem ipsum dolor</p>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="work-item" id="family" onmouseover="changeBackground({{ asset('img/rodinna.jpg') }}">
+            <div class="work-item" id="family" onmouseover="changeBackground('{{ asset('img/rodinna.jpg') }}')">
                 <h3>Rodinné</h3>
                 <p>Lorem ipsum dolor</p>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="work-item" id="seasonal" onmouseover="changeBackground({{ asset('img/sezonna.jpg') }}">
+            <div class="work-item" id="seasonal" onmouseover="changeBackground('{{ asset('img/sezonna.jpg') }}')">
                 <h3>Sezónne</h3>
                 <p>Lorem ipsum dolor</p>
             </div>

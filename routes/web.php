@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,15 +14,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Verejne dostupné stránky
 Route::get('/', function () {
-    return view('index'); // Zobrazuje `resources/views/index.blade.php`
-});
-
-Route::get('/about-me', function () {
-    return view('aboutMe'); // Zobrazuje `resources/views/aboutMe.blade.php`
-});
+    return view('index'); // Tvoja domovská stránka
+})->name('home');
 
 Route::get('/portfolio', function () {
-    return view('portfolio'); // Zobrazuje `resources/views/portfolio.blade.php`
+    return view('portfolio'); // Portfolio stránka
+})->name('portfolio');
+
+Route::get('/about-me', function () {
+    return view('aboutMe'); // O mne stránka
+})->name('aboutMe');
+
+// Login trasa
+Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
+
+// Logout trasa
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
+
+// Chránené stránky (vyžaduje prihlásenie)
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard'); // Dashboard
+    })->name('dashboard');
+
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Zahrnutie autentifikačných ciest (bez registrácie)
+require __DIR__.'/auth.php';
