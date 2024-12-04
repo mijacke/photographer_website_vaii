@@ -23,7 +23,7 @@ class PhotoController extends Controller
     {
         try {
             $request->validate([
-                'title' => 'required|string|max:255',
+                'title' => 'required|string|max:100',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:32768',
             ]);
 
@@ -57,20 +57,24 @@ class PhotoController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:32768',  // obrázok je voliteľný
         ]);
 
         if ($request->hasFile('image')) {
+            if ($photo->image_path) {
+                Storage::delete('public/' . $photo->image_path);
+            }
+
             $imagePath = $request->file('image')->store('photos', 'public');
-            $photo->update([
-                'title' => $request->title,
-                'image_path' => $imagePath,
-            ]);
-        } else {
-            $photo->update($request->only('title'));
+            $photo->image_path = $imagePath;  // Aktualizuj cestu k obrázku
         }
+
+        $photo->title = $request->title;
+        $photo->save();  // Ulož zmeny
 
         return redirect()->route('photos.index')->with('success', 'Photo updated successfully!');
     }
+
 
     public function destroy(Photo $photo)
     {

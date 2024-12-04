@@ -7,11 +7,11 @@
             @csrf
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" name="title" id="title" class="form-control" required>
+                <input type="text" name="title" id="title" class="form-control" placeholder="Zadajte nazov fotky" required>
             </div>
             <div class="form-group">
                 <label for="image">Image</label>
-                <input type="file" name="image" id="image" class="form-control" required>
+                <input type="file" name="image" id="image" class="form-control" required accept="image/*">
             </div>
             <button type="submit" class="btn btn-primary mt-3">Add Photo</button>
         </form>
