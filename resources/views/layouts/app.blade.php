@@ -1,36 +1,86 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Photographer Portfolio') }}</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Cardo:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
+    <!-- CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+    <!-- JS -->
+    @if(Route::is('index')) <!-- Include JS only on index -->
+    <script src="{{ asset('js/backgroundChange.js') }}"></script>
+    @endif
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+    <div class="container-fluid"> <!-- Používame fluid pre prispôsobenie -->
+        <!-- Stredné odkazy (Portfolio, Domov, O mne) -->
+        <ul class="navbar-nav center-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/portfolio') }}">Portfolio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link home-link" href="{{ url('/') }}">Domov</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/about-me') }}">O mne</a>
+            </li>
+        </ul>
 
-            <!-- Page Content -->
-            <main>
-                @yield('content')
-            </main>
-        </div>
-    </body>
+        <!-- Pravé odkazy (Login/Dashboard/Logout) -->
+        <ul class="navbar-nav right-nav">
+            @auth
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="btn btn-link nav-link">Logout</button>
+                    </form>
+                </li>
+            @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                </li>
+            @endauth
+        </ul>
+    </div>
+</nav>
+
+
+
+
+<!-- Main Content -->
+<main>
+    @yield('content')
+</main>
+
+<!-- Footer -->
+<footer id="footer" class="text-center mt-5">
+    <p>All content Copyright © 2024 Paulína Drahošová</p>
+    <div class="social-links">
+        <a href="https://www.facebook.com/paulifotografka" target="_blank">Facebook</a> |
+        <a href="https://www.instagram.com/paulifotografka/" target="_blank">Instagram</a>
+    </div>
+    <div class="back-to-top">
+        <a href="#">Back to top ↑</a>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

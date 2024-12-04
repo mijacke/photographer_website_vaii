@@ -150,7 +150,6 @@ p.description-text {
     margin-bottom: 25px;
 }
 
-/* Custom navbar */
 .navbar-custom {
     position: absolute;
     top: 0;
@@ -158,34 +157,60 @@ p.description-text {
     z-index: 10;
     text-transform: uppercase;
     font-family: 'Cormorant', serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Priestor medzi stredom a pravým okrajom */
+    padding: 0;
+}
+
+/* Stredné položky (Portfolio, Domov, O mne) */
+.navbar-nav.center-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Presné centrovanie */
+    display: flex;
+    align-items: center;
+}
+
+/* Pravé položky (Login/Dashboard/Logout) */
+.navbar-nav.right-nav {
+    margin-left: auto; /* Posunie Login na pravú stranu */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* Prispôsobenie pre `container` padding v Bootstrap */
+.navbar .container {
+    padding-right: 0;
+}
+
+/* Prispôsobenie marginu pre posledný prvok */
+.navbar-nav.right-nav .nav-item {
+    margin-right: 0; /* Zruší poslednú medzeru na úplný pravý okraj */
 }
 
 .nav-link {
     font-size: 1.2rem;
     color: black;
     font-weight: 300;
+    text-transform: uppercase;
+    margin: 0 15px; /* Jednotné rozostupy */
 }
 
-/* On hover, change color */
 .nav-link:hover {
     text-decoration: underline;
 }
 
-/* Special style for Home in the center */
 .home-link {
     font-size: 1.6rem;
     font-weight: 700;
 }
 
-.navbar-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .nav-item {
     margin: 0 20px;
 }
+
 
 /* HORIZONTAL Line Styling */
 .divider {

@@ -1,40 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Photographer Portfolio</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts Cormorant and Cardo -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Cardo:ital,wght@0,400;1,400&display=swap&family=Frank+Ruhl+Libre:wght@300..900&display=swap" rel="stylesheet">
+@extends('layouts.app')
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    <!-- Custom JS -->
-    <script src="{{ asset('js/backgroundChange.js') }}"></script>
-
-</head>
-<body>
-<!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
-    <div class="container">
-        <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/portfolio') }}">Portfolio</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link home-link" href="{{ url('/') }}">Domov</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/about-me') }}">O mne</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<!-- Full-screen Image Section -->
+@section('content')
 <section class="full-screen background-section">
     <h1>Pauli fotografka</h1>
     <h2 class="subheading">GALANTA - SLOVAKIA</h2>
@@ -102,22 +68,4 @@
 <!-- Horizontal Line -->
 <hr class="divider">
 
-<!-- Footer -->
-<footer id="footer" class="text-center">
-    <p>All content Copyright © 2024 Paulína Drahošová</p>
-    <div class="social-links">
-        <a href="https://www.facebook.com/paulifotografka" target="_blank">Facebook</a> |
-        <a href="https://www.instagram.com/paulifotografka/" target="_blank">Instagram</a>
-    </div>
-    <div class="back-to-top">
-        <a href="{{ url('/index') }}">Back to top ↑</a>
-    </div>
-</footer>
-
-
-<!-- Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+@endsection
