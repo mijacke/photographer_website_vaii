@@ -21,6 +21,10 @@
                             <p class="card-text">Pridané: {{ $photo->created_at->format('d. M Y') }}</p>
                             <div class="d-flex justify-content-between">
                                 <a href="{{ route('photos.edit', $photo->id) }}" class="btn btn-primary btn-sm">Upraviť</a>
+                                <a href="#" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#photoModal" onclick="openModal('{{ asset('storage/' . $photo->image_path) }}')">
+                                    <i class="fas fa-eye"></i> Zobraziť
+                                </a>
+
                                 <form action="{{ route('photos.destroy', $photo->id) }}" method="POST" onsubmit="return confirm('Naozaj chcete túto fotku vymazať?')">
                                     @csrf
                                     @method('DELETE')
@@ -37,6 +41,21 @@
             @endforelse
         </div>
 
+        <!-- Modalne okno pre zobrazenie full fotky -->
+        <div class="modal fade" id="photoModal" tabindex="-1" aria-labelledby="photoModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="photoModalLabel">Fotka</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="" id="modalImage" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <!-- Pagination -->
         <div class="d-flex justify-content-center">
@@ -45,3 +64,8 @@
 
     </div>
 @endsection
+<script>
+    function openModal(imagePath) {
+        document.getElementById('modalImage').src = imagePath;
+    }
+</script>
