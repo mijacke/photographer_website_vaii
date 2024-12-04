@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +34,8 @@ Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('l
 
 // Logout trasa
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
+Route::resource('photos', PhotoController::class);
 
 
 // Chránené stránky (vyžaduje prihlásenie)
