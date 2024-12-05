@@ -1,10 +1,13 @@
-// Function to change the background when hovering over different sections
+// Funkcia na zmenu pozadia pri prechode myšou
 function changeBackground(imageUrl) {
-    document.getElementById('see-my-work').style.backgroundImage = 'url(' + imageUrl + ')';
+    const section = document.getElementById('see-my-work');
+    if (section) {
+        section.style.backgroundImage = `url(${imageUrl})`;
+    }
 }
 
+// Defaultné pozadie pri načítaní stránky
 window.onload = function() {
-    changeBackground('img/svadobna.jpg'); // Default background when the page loads
+    // img/svadobna.jpg
+    changeBackground('img/svadobna.jpg');
 };
-
-

@@ -71,20 +71,3 @@
 
 <script src="{{ asset('js/backgroundChange.js') }}"></script>
 @endsection
-
-@section('scripts')
-    <script>
-        // Function to change the background when hovering over different sections
-        function changeBackground(imageUrl) {
-            const section = document.getElementById('see-my-work');
-            if (section) {
-                section.style.backgroundImage = `url(${imageUrl})`;
-            }
-        }
-
-        // Default background
-        window.onload = function() {
-            changeBackground('{{ asset('img/svadobna.jpg') }}');
-        };
-    </script>
-@endsection

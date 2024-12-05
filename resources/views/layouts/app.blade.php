@@ -17,7 +17,6 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Bootstrap CSS -->
 
     <!-- FontAwesome Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
@@ -91,63 +90,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- SweetAlert2 -->
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const deleteButtons = document.querySelectorAll('.delete-button');
-        deleteButtons.forEach(button => {
-            button.addEventListener('click', function (event) {
-                event.preventDefault(); // Zastaví štandardné správanie tlačidla
-                const form = this.closest('form'); // Nájde najbližší formulár
-                Swal.fire({
-                    title: 'Ste si istý?',
-                    text: "Túto akciu nebude možné vrátiť späť!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Áno, vymazať',
-                    cancelButtonText: 'Zrušiť'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        form.submit(); // Odošle formulár, ak používateľ potvrdí akciu
-                    }
-                });
-            });
-        });
-    });
-</script>
+<script src="{{ asset('js/sweetalert.js') }}"></script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.getElementById('photo-form');
-        const fileInput = document.getElementById('image');
-        const errorMessage = document.getElementById('error-message');
+<!-- Form Validation JS -->
+<script src="{{ asset('js/form-validation.js') }}"></script>
 
-        form.addEventListener('submit', function(event) {
-            const file = fileInput.files[0];
-
-            // Ak je súbor vybraný, skontrolujeme typ
-            if (file) {
-                const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'];
-
-                // Kontrola, či je typ súboru povolený
-                if (!allowedTypes.includes(file.type)) {
-                    event.preventDefault(); // Zastaví odoslanie formuláru
-                    errorMessage.style.display = 'block'; // Zobrazí chybovú správu
-                    fileInput.value = ''; // Vymaže výber súboru
-                } else {
-                    errorMessage.style.display = 'none'; // Skryje chybovú správu
-                }
-            }
-        });
-
-        // Skrytie chybovej správy, keď používateľ zmení súbor
-        fileInput.addEventListener('change', function() {
-            errorMessage.style.display = 'none'; // Skryje chybovú správu, ak používateľ zmení súbor
-        });
-    });
-
-</script>
 @yield('scripts')
 </body>
 </html>
